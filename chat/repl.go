@@ -121,6 +121,5 @@ func seedHistory(path string) ([]llm.Message, error) {
 	if content == "" {
 		return nil, nil
 	}
-	fmt.Println(content)
 	return []llm.Message{{Role: "system", Content: content}}, nil
 }
