@@ -2,7 +2,7 @@ services:
   postgres:
     # Official image: Postgres 18 with the pgvector extension preinstalled.
     image: pgvector/pgvector:pg18
-    container_name: rag-course-postgres
+    container_name: gorag-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: rag
@@ -16,7 +16,7 @@ services:
       # /var/lib/postgresql/data as in PG 17 and earlier.
       - pgdata:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U rag -d rag"]
+      test: [ "CMD-SHELL", "pg_isready -U rag -d rag" ]
       interval: 5s
       timeout: 3s
       retries: 10
